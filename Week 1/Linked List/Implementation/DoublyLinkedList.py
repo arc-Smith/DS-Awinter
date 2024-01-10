@@ -90,6 +90,8 @@ class DoublyLinkedList:
                 current.next.prev = current.prev
                 print("Node has been removed")
                 return
+            else:
+                current = current.next
         print(f"{removeVal} is not in the Linked List")
 
     def findIndex(self, targetVal):
