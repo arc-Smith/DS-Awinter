@@ -79,7 +79,18 @@ class DoublyLinkedList:
         pass
     
     def remove(self, removeVal):
-        pass
+        # Step 1: create temporary pointer
+        current = self.head
+        # Step 2: parse through each node and compare the node's vals
+        while current != None:
+            if current.val == removeVal:
+                # Step 3: current's previous node is updated
+                current.prev.next = current.next
+                # Step 4: current's next node is updated
+                current.next.prev = current.prev
+                print("Node has been removed")
+                return
+        print(f"{removeVal} is not in the Linked List")
 
     def findIndex(self, targetVal):
         pass
