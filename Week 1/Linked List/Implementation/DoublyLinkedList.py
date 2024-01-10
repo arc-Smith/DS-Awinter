@@ -70,7 +70,10 @@ class DoublyLinkedList:
 
 
     def insert_at_back(self, newVal):
-        pass
+        newNode = DoublyNode(newVal)
+        self.tail.next = newNode
+        newNode.prev = self.tail
+        self.tail = newNode
 
     def insert(self, newVal, location):
         pass
