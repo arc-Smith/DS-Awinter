@@ -75,8 +75,49 @@ class DoublyLinkedList:
         newNode.prev = self.tail
         self.tail = newNode
 
-    def insert(self, newVal, location):
-        pass
+    def insert_at_middle(self, newVal):
+        # Step 1: Create new node
+        newNode = DoublyNode(newVal)
+
+        # Step 2: setup the temporary pointer
+        current = self.head
+
+        # Step 3: looping till the current's next should be our new node
+        while index != 1:
+            # Step 4: decrement index
+            index -= 1
+            # Step 5: move/shift current pointer
+            current = current.next
+        
+        # Step 6: establishing connections
+        newNode.next = current.next
+        newNode.prev = current
+
+        current.next.prev = newNode
+        current.next = newNode
+
+
+    def insert(self, newVal, index):
+        # Step 1a: get the length of the linked list
+        length = 0
+        # Step 1b: setup temporary pointer
+        current = self.head
+        # Step 1c: looping through linked list
+        while current != None:
+            # Step 1d: increment the length
+            length += 1
+            # Step 1e: move/shift the current pointer
+            current = current.next
+        
+        # Step 2: insertion at back of linked list
+        if index >= length:
+            self.insert_at_back(valToEnter)
+        # Step 3: insertion at front of linked list
+        elif index == 0:
+            self.insert_at_front(valToEnter)
+        # Step 4: insertion at middle of linked list
+        else:
+            self.insert_at_middle(valToEnter)
     
     def remove(self, removeVal):
         # no node to remove
@@ -123,7 +164,7 @@ class DoublyLinkedList:
 
         # Step 3: looping till we possibly find targetVal
         while current != None:
-            if current.val == targetValue:
+            if current.val == targetVal:
                 return index
             else:
                 index += 1

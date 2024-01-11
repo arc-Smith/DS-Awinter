@@ -99,23 +99,27 @@ class SinglyLinkedList:
         # Step 3: insertion at front of linked list
         elif index == 0:
             self.insert_at_front(valToEnter)
+        # Step 4: insertion at middle of linked list
         else:
-            # Step 4: Create new node
-            newNode = SinglyNode(valToEnter)
+            self.insert_at_middle(valToEnter)
+        
+    def insert_at_middle(self, newVal):
+        # Step 1: Create new node
+        newNode = SinglyNode(valToEnter)
 
-            # Step 5: setup the temporary pointer
-            current = self.head
+        # Step 2: setup the temporary pointer
+        current = self.head
 
-            # Step 6: looping till we get right behind the insertion point
-            while index != 1:
-                # Step 7: decrement index
-                index -= 1
-                # Step 8: move/shift current pointer
-                current = current.next
-            
-            # Step 9: establishing connections
-            newNode.next = current.next #Node3->Node4
-            current.next = newNode #Node2->Node3
+        # Step 3: looping till the current's next should be our new node
+        while index != 1:
+            # Step 4: decrement index
+            index -= 1
+            # Step 5: move/shift current pointer
+            current = current.next
+        
+        # Step 6: establishing connections
+        newNode.next = current.next #Node3->Node4
+        current.next = newNode #Node2->Node3
         
     def findIndex(self, targetValue):
         # Step 1: create our return variable
