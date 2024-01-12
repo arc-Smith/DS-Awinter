@@ -1,3 +1,43 @@
+class SinglyNode:
+    # INITIALIZER
+    def __init__(self, val, next=None): # O(1) time
+        self.val = val # O(1) time
+        self.next = next # O(1) time
+        
+    # GETTERS
+    def get_value(self): # O(1) time
+        return self.val # O(1) time
+    def get_next(self): # O(1) time
+        return self.next # O(1) time
+    
+    # SETTERS
+    def set_value(self, val): # O(1) time
+        self.val = val # O(1) time
+    def set_next(self, next): # O(1) time
+        self.next = next # O(1) time
+
+class Stack:
+    def __init__(self, maxSize):
+        self.maxSize = maxSize
+        self.top = None
+        self.size = 0
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # // public class Stack {
