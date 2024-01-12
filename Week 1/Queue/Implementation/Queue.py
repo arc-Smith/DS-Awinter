@@ -29,12 +29,53 @@ class Queue:
         self.max = max
         self.size = 1
     
+    # GETTER
+    def get_size(self):
+        print(f"Queue Size={self.size}")
+        return self.size
+    
     def is_empty(self) -> bool:
         if self.size < 1:
             print("Queue is empty")
             return True
         else:
             return False
+
+    def enqueue(self, value):
+        if self.has_space():
+            newNode = DoublyNode(value)
+            self.back.next = newNode
+            newNode.prev = self.back
+            self.back = newNode
+            self.size += 1
+        else:
+            print("Queue is FULL")
+    
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue is already empty")
+        else:
+            self.front = self.front.next
+            self.front.prev = None
+            self.size -= 1
+    
+    def peek(self):
+        if self.is_empty():
+            print("Queue is EMPTY")
+        else:
+            return self.front.val
+    
+    def has_space(self):
+        if self.size < self.max:
+            return True
+        else:
+            return False
+    
+
+
+
+
+    
 
 
 

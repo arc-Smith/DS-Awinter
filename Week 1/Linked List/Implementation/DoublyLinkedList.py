@@ -75,10 +75,71 @@ class DoublyLinkedList:
         newNode.prev = self.tail
         self.tail = newNode
 
-    def insert(self, newVal, location):
-        pass
+    def insert_at_middle(self, newVal):
+        # Step 1: Create new node
+        newNode = DoublyNode(newVal)
+
+        # Step 2: setup the temporary pointer
+        current = self.head
+
+        # Step 3: looping till the current's next should be our new node
+        while index != 1:
+            # Step 4: decrement index
+            index -= 1
+            # Step 5: move/shift current pointer
+            current = current.next
+        
+        # Step 6: establishing connections
+        newNode.next = current.next
+        newNode.prev = current
+
+        current.next.prev = newNode
+        current.next = newNode
+
+
+    def insert(self, newVal, index):
+        # Step 1a: get the length of the linked list
+        length = 0
+        # Step 1b: setup temporary pointer
+        current = self.head
+        # Step 1c: looping through linked list
+        while current != None:
+            # Step 1d: increment the length
+            length += 1
+            # Step 1e: move/shift the current pointer
+            current = current.next
+        
+        # Step 2: insertion at back of linked list
+        if index >= length:
+            self.insert_at_back(valToEnter)
+        # Step 3: insertion at front of linked list
+        elif index == 0:
+            self.insert_at_front(valToEnter)
+        # Step 4: insertion at middle of linked list
+        else:
+            self.insert_at_middle(valToEnter)
     
     def remove(self, removeVal):
+        # no node to remove
+        if self.head == None:
+            print("empty linked list")
+            return
+        # one node in linked list that's removed
+        elif current.val == removeVal and not self.head.prev and not self.head.next:
+            self.head = None
+            self.tail = None
+            return
+        # head node is removed
+        elif self.head.val == removeVal:
+            self.head = self.head.next
+            self.head.prev = None
+            return
+        # tail node is removed
+        elif self.tail.val == removeVal:
+            self.tail = self.tail.prev
+            self.tail.next = None
+
+        # removing a node in the middle
         # Step 1: create temporary pointer
         current = self.head
         # Step 2: parse through each node and compare the node's vals
@@ -95,4 +156,19 @@ class DoublyLinkedList:
         print(f"{removeVal} is not in the Linked List")
 
     def findIndex(self, targetVal):
-        pass
+        # Step 1: create our return variable
+        index = 0
+
+        # Step 2: create our temporary variable
+        current = self.head
+
+        # Step 3: looping till we possibly find targetVal
+        while current != None:
+            if current.val == targetVal:
+                return index
+            else:
+                index += 1
+                current = current.next
+
+        # Step 4: returning
+        return None # indicates that targetVal is NOT inside of the linked list
