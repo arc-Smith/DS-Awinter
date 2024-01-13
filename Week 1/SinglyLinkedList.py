@@ -148,3 +148,10 @@ class SinglyLinkedList:
                 current.next = current.next.next
             else:
                 current = current.next
+    
+    def findRefBefore(self, elem):
+        diff = 0
+        current = self.head
+
+        while current.next:
+            pass
